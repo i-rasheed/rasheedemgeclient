@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.add-expense-wrapper {
+  padding: 1rem 7rem 0;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+.expense-log-wrapper {
+  padding: 0 7rem;
+}
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear-btn {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.label-checkbox {
+  cursor: pointer;
+}
+.navbar {
+  padding: 0 3rem;
+}
