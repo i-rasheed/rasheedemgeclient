@@ -42,9 +42,13 @@ export default function AddExpense() {
     if (userData.token) {
       try {
         setIsLoading(true);
-        await Axios.post(`${REACT_APP_BACKEND_URL}/expense`, values, {
-          headers: { "x-auth-token": token },
-        });
+        await Axios.post(
+          `${process.env.REACT_APP_BACKEND_URL}/expense`,
+          values,
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         setMsg("Added");
         setIsLoading(false);
       } catch (error) {

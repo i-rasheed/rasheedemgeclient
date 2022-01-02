@@ -34,10 +34,13 @@ export default function Register() {
     e.preventDefault();
     try {
       setIsLoading(true);
-      await Axios.post(`${REACT_APP_BACKEND_URL}/users/register`, values);
+      await Axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/users/register`,
+        values
+      );
       setIsLoading(true);
       const loginRes = await Axios.post(
-        `${REACT_APP_BACKEND_URL}/users/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/users/login`,
         {
           email: values.email,
           password: values.password,

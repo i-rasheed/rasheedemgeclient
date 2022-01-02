@@ -30,7 +30,7 @@ export default function EditExpense() {
       try {
         setIsLoading(true);
         const expenseRes = await Axios.get(
-          `${REACT_APP_BACKEND_URL}/expense/${id}/one`,
+          `${process.env.REACT_APP_BACKEND_URL}/expense/${id}/one`,
           {
             headers: { "x-auth-token": token },
           }
@@ -76,9 +76,13 @@ export default function EditExpense() {
     e.preventDefault();
     try {
       setIsLoading(true);
-      await Axios.put(`${REACT_APP_BACKEND_URL}/expense/${id}`, values, {
-        headers: { "x-auth-token": token },
-      });
+      await Axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/expense/${id}`,
+        values,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setIsLoading(false);
       navigate("/log");
     } catch (error) {

@@ -34,7 +34,7 @@ export default function Login() {
     try {
       setIsLoading(true);
       const loginRes = await Axios.post(
-        `${REACT_APP_BACKEND_URL}/users/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/users/login`,
         values
       );
       setIsLoading(false);

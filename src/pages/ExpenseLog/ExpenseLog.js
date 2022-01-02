@@ -32,7 +32,7 @@ function ExpenseLog() {
     const postExpenses = async () => {
       try {
         const postRes = await Axios.post(
-          `${REACT_APP_BACKEND_URL}/expense/many/${myPost}`,
+          `${process.env.REACT_APP_BACKEND_URL}/expense/many/${myPost}`,
           {
             headers: { "x-auth-token": token },
           }
@@ -53,7 +53,7 @@ function ExpenseLog() {
     try {
       setIsLoading(true);
       const expenseRes = await Axios.get(
-        `${REACT_APP_BACKEND_URL}/expense/mine/all`,
+        `${process.env.REACT_APP_BACKEND_URL}/expense/mine/all`,
         {
           headers: { "x-auth-token": token },
         }
@@ -99,9 +99,12 @@ function ExpenseLog() {
     });
     try {
       setIsLoading(true);
-      await Axios.delete(`${REACT_APP_BACKEND_URL}/expense/many/${arrayIds}`, {
-        headers: { "x-auth-token": token },
-      });
+      await Axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/expense/many/${arrayIds}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       setIsLoading(false);
       getExpenses();
     } catch (error) {
