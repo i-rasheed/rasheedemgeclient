@@ -43,10 +43,6 @@ function ExpenseLog() {
     postExpenses();
   }, [myPost, token]);
 
-  useEffect(() => {
-    getExpenses();
-  }, [getExpenses]);
-
   const getExpenses = async () => {
     try {
       setIsLoading(true);
@@ -71,6 +67,10 @@ function ExpenseLog() {
       setError(message);
     }
   };
+
+  useEffect(() => {
+    getExpenses();
+  }, []);
 
   const handleChange = (e) => {
     const { name, checked } = e.target;
@@ -141,7 +141,6 @@ function ExpenseLog() {
               <div className="form-check">
                 <input
                   type="checkbox"
-                  className=""
                   name="allSelect"
                   className="label-checkbox"
                   checked={!users.some((user) => user?.isChecked !== true)}

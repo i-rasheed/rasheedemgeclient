@@ -55,7 +55,7 @@ export default function NavBar() {
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/add">
                     <li className="nav-item">
-                      <a className="nav-link">Add Expense</a>
+                      <span className="nav-link">Add Expense</span>
                     </li>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/">
@@ -76,7 +76,7 @@ export default function NavBar() {
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
               <Link style={{ textDecoration: "none" }} to="/">
-                <a className="navbar-brand">Expense Tracker</a>
+                <span className="navbar-brand">Expense Tracker</span>
               </Link>
               <button
                 className="navbar-toggler"
@@ -96,24 +96,24 @@ export default function NavBar() {
                 <ul className="navbar-nav">
                   <Link style={{ textDecoration: "none" }} to="/">
                     <li className="nav-item">
-                      <a className="nav-link active" aria-current="page">
+                      <span className="nav-link active" aria-current="page">
                         Home
-                      </a>
+                      </span>
                     </li>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/add">
                     <li className="nav-item">
-                      <a className="nav-link">Add Expense</a>
+                      <span className="nav-link">Add Expense</span>
                     </li>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/register">
                     <li className="nav-item">
-                      <a className="nav-link">Register</a>
+                      <span className="nav-link">Register</span>
                     </li>
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/login">
                     <li className="nav-item">
-                      <a className="nav-link">Login</a>
+                      <span className="nav-link">Login</span>
                     </li>
                   </Link>
                 </ul>
