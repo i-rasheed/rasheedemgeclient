@@ -13,10 +13,11 @@
     "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "3.3.0",
-    "reactstrap": "^9.0.1"
+    "reactstrap": "^9.0.1",
+    "serve": "^13.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
