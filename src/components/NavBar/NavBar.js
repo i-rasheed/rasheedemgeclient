@@ -50,6 +50,13 @@ export default function NavBar() {
                   </Link>
                   <Link style={{ textDecoration: "none" }} to="/log">
                     <li className="nav-item">
+                      <span className="nav-link">
+                        {userData.user.displayName}
+                      </span>
+                    </li>
+                  </Link>
+                  <Link style={{ textDecoration: "none" }} to="/log">
+                    <li className="nav-item">
                       <span className="nav-link">Expenses List</span>
                     </li>
                   </Link>

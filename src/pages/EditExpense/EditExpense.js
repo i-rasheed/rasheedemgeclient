@@ -97,7 +97,7 @@ export default function EditExpense() {
   if (isLoading) {
     word = "loading..";
   } else {
-    word = "Sunmit";
+    word = "Submit";
   }
 
   return (

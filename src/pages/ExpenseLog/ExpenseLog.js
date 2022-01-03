@@ -6,7 +6,7 @@ import Message from "../../components/Message/Message";
 import Loader from "react-loader-spinner";
 
 function ExpenseLog() {
-  const [users, setUsers] = useState([]);
+  const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [msg, setMsg] = useState();
@@ -57,7 +57,7 @@ function ExpenseLog() {
       }
       setIsLoading(false);
       console.log(expenseRes);
-      setUsers(expenseRes.data);
+      setExpenses(expenseRes.data);
     } catch (error) {
       setIsLoading(false);
       const message =
@@ -76,21 +76,21 @@ function ExpenseLog() {
   const handleChange = (e) => {
     const { name, checked } = e.target;
     if (name === "allSelect") {
-      let tempUser = users.map((user) => {
-        return { ...user, isChecked: checked };
+      let tempExpense = expenses.map((ex) => {
+        return { ...ex, isChecked: checked };
       });
-      setUsers(tempUser);
+      setExpenses(tempExpense);
     } else {
-      let tempUser = users.map((user) =>
-        user._id === name ? { ...user, isChecked: checked } : user
+      let tempExpense = expenses.map((ex) =>
+        ex._id === name ? { ...ex, isChecked: checked } : ex
       );
-      setUsers(tempUser);
+      setExpenses(tempExpense);
     }
   };
 
   const deleteExpenseByIds = async () => {
     let arrayIds = [];
-    users.forEach((d) => {
+    expenses.forEach((d) => {
       if (d.isChecked) {
         arrayIds.push(d._id);
       }
@@ -144,7 +144,7 @@ function ExpenseLog() {
                   type="checkbox"
                   name="allSelect"
                   className="label-checkbox"
-                  checked={!users.some((user) => user?.isChecked !== true)}
+                  checked={!expenses.some((user) => user?.isChecked !== true)}
                   onChange={handleChange}
                 />
                 <label>All Select</label>
@@ -160,7 +160,7 @@ function ExpenseLog() {
                 color="#00BFFF"
                 height={100}
                 width={100}
-                timeout={3000}
+                timeout={5000}
               />
             </>
           ) : error ? (
@@ -173,7 +173,7 @@ function ExpenseLog() {
             </>
           ) : (
             <>
-              {users.map((el) => (
+              {expenses.map((el) => (
                 <tr key={el._id}>
                   <td>
                     {" "}
