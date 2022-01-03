@@ -124,7 +124,7 @@ export default function AddExpense() {
         <div class="form-group">
           <label htmlFor="amount">Amount</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             name="amount"
             onChange={handleInputChange}
