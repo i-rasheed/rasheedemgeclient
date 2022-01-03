@@ -1,6 +1,5 @@
 import Axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
-import UserContext from "../../context/userContext";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Message from "../../components/Message/Message";
@@ -10,7 +9,6 @@ function ExpenseLog() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const { userData } = useContext(UserContext);
   const [msg, setMsg] = useState();
 
   const clearMsg = () => {
@@ -43,11 +41,11 @@ function ExpenseLog() {
       }
     };
     postExpenses();
-  }, []);
+  }, [myPost, token]);
 
   useEffect(() => {
     getExpenses();
-  }, []);
+  }, [getExpenses]);
 
   const getExpenses = async () => {
     try {

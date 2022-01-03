@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
-import UserContext from "../../context/userContext";
 import Message from "../../components/Message/Message";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -18,7 +17,6 @@ export default function EditExpense() {
   const [isLoading, setIsLoading] = useState(false);
   const [msg, setMsg] = useState();
 
-  const { userData } = useContext(UserContext);
   const navigate = useNavigate();
 
   const params = useParams();
@@ -54,7 +52,7 @@ export default function EditExpense() {
       }
     };
     getExpense();
-  }, []);
+  }, [id, token]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
