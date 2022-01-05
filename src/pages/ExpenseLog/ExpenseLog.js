@@ -5,12 +5,12 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Message from "../../components/Message/Message";
 import Loader from "react-loader-spinner";
 
+
 function ExpenseLog() {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [msg, setMsg] = useState();
-
   const clearMsg = () => {
     setMsg(undefined);
   };
@@ -20,11 +20,15 @@ function ExpenseLog() {
   };
 
   const navigate = useNavigate();
-  let token = localStorage.getItem("auth-token");
+
+
+ 
   const myPost = localStorage.getItem("userExpense")
     ? JSON.parse(localStorage.getItem("userExpense"))
     : null;
   console.log(myPost);
+  let token = localStorage.getItem("auth-token");
+
 
   useEffect(() => {
     const postExpenses = async () => {
@@ -42,6 +46,8 @@ function ExpenseLog() {
     };
     postExpenses();
   }, [myPost, token]);
+
+  
 
   const getExpenses = async () => {
     try {

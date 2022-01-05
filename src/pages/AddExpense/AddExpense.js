@@ -64,11 +64,15 @@ export default function AddExpense() {
         !values.date
       )
         return setError("All fields are required!");
-      setExpenseArr((currentArray) => [...currentArray, values]);
+      // setExpenseArr([...expenseArr, values])
+      // const newArr = expenseArr
+      const newArr = [...expenseArr, values];
+      setExpenseArr(newArr);
+  
 
-      localStorage.setItem("userExpense", JSON.stringify(expenseArr));
+      localStorage.setItem("userExpense", JSON.stringify(newArr));
       setMsg("Added");
-      setValues(initialValues);
+      // setValues(initialValues);
     }
   };
 

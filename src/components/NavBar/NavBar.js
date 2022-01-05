@@ -41,13 +41,6 @@ export default function NavBar() {
                 id="navbarNav"
               >
                 <ul className="navbar-nav align-items-center">
-                  <Link style={{ textDecoration: "none" }} to="/">
-                    <li className="nav-item">
-                      <span className="nav-link active" aria-current="page">
-                        Home
-                      </span>
-                    </li>
-                  </Link>
                   <Link style={{ textDecoration: "none" }} to="/log">
                     <li className="nav-item">
                       <span className="nav-link">
@@ -55,6 +48,14 @@ export default function NavBar() {
                       </span>
                     </li>
                   </Link>
+                  <Link style={{ textDecoration: "none" }} to="/">
+                    <li className="nav-item">
+                      <span className="nav-link" aria-current="page">
+                        Home
+                      </span>
+                    </li>
+                  </Link>
+
                   <Link style={{ textDecoration: "none" }} to="/log">
                     <li className="nav-item">
                       <span className="nav-link">Expenses List</span>
