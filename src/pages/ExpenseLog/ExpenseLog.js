@@ -5,7 +5,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Message from "../../components/Message/Message";
 import Loader from "react-loader-spinner";
 
-
 function ExpenseLog() {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState();
@@ -21,33 +20,33 @@ function ExpenseLog() {
 
   const navigate = useNavigate();
 
-
- 
   const myPost = localStorage.getItem("userExpense")
     ? JSON.parse(localStorage.getItem("userExpense"))
     : null;
   console.log(myPost);
   let token = localStorage.getItem("auth-token");
 
+  // useEffect(() => {
+  const postExpenses = async () => {
+    try {
+      const postRes = await Axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/expense/many/${myPost}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
+      console.log(postRes.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //   postExpenses();
+  // }, [myPost, token]);
 
   useEffect(() => {
-    const postExpenses = async () => {
-      try {
-        const postRes = await Axios.post(
-          `${process.env.REACT_APP_BACKEND_URL}/expense/many/${myPost}`,
-          {
-            headers: { "x-auth-token": token },
-          }
-        );
-        console.log(postRes);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     postExpenses();
-  }, [myPost, token]);
-
-  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getExpenses = async () => {
     try {

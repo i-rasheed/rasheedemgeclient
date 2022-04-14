@@ -1,19 +1,19 @@
-import React, { useState, useContext } from "react";
-import UserContext from "../../context/userContext";
-import Axios from "axios";
-import Message from "../../components/Message/Message";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import UserContext from '../../context/userContext';
+import Axios from 'axios';
+import Message from '../../components/Message/Message';
+import { useNavigate } from 'react-router-dom';
 
 const initialValues = {
-  displayName: "",
-  email: "",
-  password: "",
-  passwordCheck: "",
+  displayName: '',
+  email: '',
+  password: '',
+  passwordCheck: '',
 };
 
 export default function Register() {
   const [values, setValues] = useState(initialValues);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,8 +50,8 @@ export default function Register() {
         token: loginRes.data.token,
         user: loginRes.data.user,
       });
-      localStorage.setItem("auth-token", loginRes.data.token);
-      navigate("/log");
+      localStorage.setItem('auth-token', loginRes.data.token);
+      navigate('/log');
     } catch (error) {
       setIsLoading(false);
       const message =
@@ -64,9 +64,9 @@ export default function Register() {
 
   let word;
   if (isLoading) {
-    word = "loading..";
+    word = 'loading...';
   } else {
-    word = "Submit";
+    word = 'Submit';
   }
 
   return (
